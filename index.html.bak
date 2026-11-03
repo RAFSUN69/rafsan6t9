@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAFSUN6T9 | Welcome</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #090a0f;
+            color: #ffffff;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        /* Background Video Styles */
+        #bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        /* Dark Overlay to make content readable over video */
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(9, 10, 15, 0.7);
+            z-index: 2;
+        }
+
+        /* Overlay Intro Screen */
+        #intro-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(9, 10, 15, 0.95);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            transition: opacity 1s ease, visibility 1s ease;
+        }
+
+        .intro-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            font-weight: bold;
+            box-shadow: 0 0 30px rgba(79, 172, 254, 0.6);
+            animation: pulse 2s infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(79, 172, 254, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(79, 172, 254, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(79, 172, 254, 0); }
+        }
+
+        .enter-btn {
+            padding: 14px 32px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            background: transparent;
+            border: 2px solid #4facfe;
+            border-radius: 30px;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+            transition: 0.3s ease;
+            box-shadow: 0 0 15px rgba(79, 172, 254, 0.3);
+        }
+
+        .enter-btn:hover {
+            background: #4facfe;
+            box-shadow: 0 0 30px rgba(79, 172, 254, 0.8);
+            transform: translateY(-3px);
+        }
+
+        /* Main Content Screen */
+        #main-content {
+            position: relative;
+            z-index: 10;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 1s ease, transform 1s ease;
+            padding: 20px;
+        }
+
+        .profile-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #1a1c23;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            border: 2px solid #4facfe;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        p.subtitle {
+            font-size: 0.9rem;
+            color: #aaa;
+            margin-bottom: 25px;
+        }
+
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .link-btn:hover {
+            background: rgba(79, 172, 254, 0.2);
+            border-color: #4facfe;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Video Element -->
+    <video autoplay muted loop id="bg-video">
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-digital-animation-of-screens-and-numbers-31919-large.mp4" type="video/mp4">
+        Your browser does not support video tag.
+    </video>
+    
+    <!-- Video Dark Overlay -->
+    <div class="video-overlay"></div>
+
+    <!-- Intro Animation Screen -->
+    <div id="intro-screen">
+        <div class="intro-circle">R6</div>
+        <h2 style="margin-bottom: 20px; font-weight: 300; letter-spacing: 1px;">WELCOME TO MY WORLD</h2>
+        <button class="enter-btn" onclick="enterSite()">CLICK TO ENTER</button>
+    </div>
+
+    <!-- Main Profile Page -->
+    <div id="main-content">
+        <div class="profile-card">
+            <div class="avatar">R6</div>
+            <h1>RAFSUN6T9</h1>
+            <p class="subtitle">Connect with me and join the community.</p>
+
+            <div class="links-container">
+                <a href="https://discord.gg/z8Xye89Z8s" target="_blank" class="link-btn"><i class="fab fa-discord"></i> ENTER TO DISCORD</a>
+                <a href="https://t.me/RAFSUN6T9" target="_blank" class="link-btn"><i class="fab fa-telegram"></i> DM ON TELEGRAM</a>
+                <a href="https://wa.me/8801317021116" target="_blank" class="link-btn"><i class="fab fa-whatsapp"></i> CHAT ON WHATSAPP</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Entry Action (Reveal Main Content)
+        function enterSite() {
+            const intro = document.getElementById('intro-screen');
+            const main = document.getElementById('main-content');
+
+            intro.style.opacity = '0';
+            setTimeout(() => {
+                intro.style.visibility = 'hidden';
+                main.style.opacity = '1';
+                main.style.transform = 'scale(1)';
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
